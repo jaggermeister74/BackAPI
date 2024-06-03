@@ -14,11 +14,18 @@ namespace BackAPI.Controllers
             _productService = productService;
         }
         [HttpPost("addProduct")]
-        public async Task<IActionResult> AddUser([FromBody] ProductModel product)
+        public async Task<IActionResult> AddProduct([FromBody] ProductModel product)
         {
-            _logger.LogInformation("Добавление пользователя");
+            _logger.LogInformation("Добавление продукта");
 
             return Ok(await _productService.AddProduct(product));
+        }
+        [HttpGet("GetProduct")]
+        public async Task<IActionResult> AllProducts()
+        {
+            _logger.LogInformation("Список продуктов");
+
+            return Ok(await _productService.GetAllProducts());
         }
     }
 }

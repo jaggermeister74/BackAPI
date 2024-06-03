@@ -1,6 +1,7 @@
 ﻿using BackAPI.Entity;
 using BackAPI.Models;
 using BackAPI.Services;
+using Microsoft.EntityFrameworkCore;
 
 namespace BackAPI.Services
 {
@@ -10,13 +11,13 @@ namespace BackAPI.Services
         {
             using var context = new Context();
 
-            var user = new User
+            var product = new Product
             {
 
-                Name = GetRandomStr(),
-              
+                ProductName = GetRandomStr(),
+                ProductId = Guid.NewGuid(),
             };
-            context.Users.Add(user);
+            context.Products.Add(product);
 
             return await context.SaveChangesAsync() > 0;
         }
@@ -49,6 +50,10 @@ namespace BackAPI.Services
             int range = (new DateTime(2006, 1, 1) - start).Days;
             return start.AddDays(gen.Next(range));
         }
-
+        public async Task<List<Product>> GetAllProducts()
+        {
+            using var context = new Context();
+            return await context.Products.ToListAsync();
+        }
     }
 }

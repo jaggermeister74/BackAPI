@@ -27,10 +27,10 @@ namespace BackAPI.Services
             return await context.SaveChangesAsync() > 0;
         }
 
-        public Task<List<User>> GetAllUsers()
+        public async Task<List<User>> GetAllUsers()
         {
             using var context = new Context();
-            return context.Users.ToListAsync();
+            return await context.Users.ToListAsync();
         }
 
         public async Task<bool> RemoveUsers()
@@ -70,8 +70,8 @@ namespace BackAPI.Services
         private static DateTime GetRandomDate()
         {
             var gen = new Random();
-            var start = new DateTime(1995, 1, 1);
-            int range = (new DateTime(2006, 1, 1) - start).Days;
+            var start = new DateTime(1995,1,1);
+            int range = (new DateTime(2006,1,1) - start).Days;
             return start.AddDays(gen.Next(range));
         }
     }

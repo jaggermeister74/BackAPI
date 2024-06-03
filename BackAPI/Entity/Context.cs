@@ -14,7 +14,7 @@ namespace BackAPI.Entity
         }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseNpgsql("Host=localhost;Port=5432;Database=postgres;Username=postgres;Password=Aa18062003@");
+            optionsBuilder.UseNpgsql("Server=localhost;Port=5432;Database=Artem;Username=postgres;Password=Aa18062003@");
         }
     }
 }

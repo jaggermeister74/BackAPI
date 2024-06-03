@@ -23,7 +23,7 @@ namespace BackAPI.Controllers
 
             return Ok(await _userService.GetAllUsers());
         }
-
+        /*
         [HttpPost("addusers")]
         public async Task<IActionResult> AddUser([FromBody] UserModel user)
         {
@@ -31,6 +31,7 @@ namespace BackAPI.Controllers
 
             return Ok(await _userService.AddUsers(user));
         }
+        
         [HttpPost("removeusers")]
         public async Task<IActionResult> RemoveUsers()
         {
@@ -38,5 +39,6 @@ namespace BackAPI.Controllers
 
             return Ok(await _userService.RemoveUsers());
         }
+        */
     }
 }

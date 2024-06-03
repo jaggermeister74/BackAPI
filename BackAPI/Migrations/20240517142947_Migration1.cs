@@ -1,12 +1,11 @@
-﻿using System;
-using Microsoft.EntityFrameworkCore.Migrations;
+﻿using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
 namespace BackAPI.Migrations
 {
     /// <inheritdoc />
-    public partial class Init : Migration
+    public partial class Migration1 : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -56,13 +55,6 @@ namespace BackAPI.Migrations
                 {
                     ProductId = table.Column<Guid>(type: "uuid", nullable: false),
                     ProductName = table.Column<string>(type: "text", nullable: false),
-                    ProductDescription = table.Column<string>(type: "text", nullable: false),
-                    ProductType = table.Column<string>(type: "text", nullable: false),
-                    Articul = table.Column<string>(type: "text", nullable: false),
-                    Manufacturer = table.Column<string>(type: "text", nullable: false),
-                    ProductCount = table.Column<int>(type: "integer", nullable: false),
-                    Price = table.Column<int>(type: "integer", nullable: false),
-                    IsAvalaible = table.Column<bool>(type: "boolean", nullable: false),
                     OrderId = table.Column<Guid>(type: "uuid", nullable: true)
                 },
                 constraints: table =>
